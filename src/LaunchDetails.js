@@ -17,12 +17,11 @@ const LaunchDetails = () => {
     );
     const json = await response.json();
     setDetail(json);
-    console.log(json);
   }
 
   return (
     <div>
-      <table>
+      <table className='table'>
         <thead>
           <tr>
             <th>Mission</th>

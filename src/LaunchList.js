@@ -36,17 +36,19 @@ const LaunchList = () => {
           requestMissions();
         }}
       >
-        <label htmlFor='mission'>
-          <input
-            id='mission'
-            value={mission}
-            placeholder='Search for mission'
-            onChange={(event) => setMission(event.target.value)}
-          />
-        </label>
-        <button>Search mission</button>
+        <input
+          className='form-text'
+          id='mission'
+          value={mission}
+          placeholder='Search for mission'
+          onChange={(event) => setMission(event.target.value)}
+        />
+
+        <button type='button' className='btn btn-info btn-sm'>
+          Search mission
+        </button>
       </form>
-      <table>
+      <table className='table table-striped'>
         <thead>
           <tr>
             <th>Flight number</th>

@@ -10,7 +10,9 @@ const LaunchRow = ({ flight_number, mission, date, rocket_name }) => {
       <td>{date}</td>
       <td>{rocket_name}</td>
       <td>
-        <Link to={`/details/${flight_number}`}>details</Link>
+        <Link className='link-success' to={`/details/${flight_number}`}>
+          details
+        </Link>
       </td>
     </tr>
   );
