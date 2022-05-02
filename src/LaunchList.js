@@ -6,7 +6,6 @@ const LaunchList = () => {
   const [missions, setMissions] = useState([]);
 
   useEffect(() => {
-    console.log('requestMissions');
     requestMissions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
