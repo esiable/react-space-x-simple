@@ -6,6 +6,7 @@ import LaunchGallery from './LaunchGallery';
 const LaunchDetails = () => {
   const { id } = useParams();
   const [detail, setDetail] = useState([]);
+  const [state, setState] = useState(false);
 
   useEffect(() => {
     requestLaunchDetails();
@@ -17,7 +18,10 @@ const LaunchDetails = () => {
     );
     const json = await response.json();
     setDetail(json);
+    setState(true);
   }
+
+  if (!state) return <div>Loading ...</div>;
 
   return (
     <div>
@@ -33,30 +37,19 @@ const LaunchDetails = () => {
         </thead>
         <tbody>
           <tr>
-            <td>{detail.mission_name || 'not loaded'}</td>
-            <td>{detail.launch_date_utc || 'not loaded'}</td>
-            <td>
-              {(detail.launch_site && detail.launch_site.site_name) ||
-                'not loaded'}
-            </td>
-            <td>
-              {(detail.rocket && detail.rocket.rocket_name) || 'not loaded'}
-            </td>
+            <td>{detail.mission_name}</td>
+            <td>{detail.launch_date_utc}</td>
+            <td>{detail.launch_site.site_name}</td>
+            <td>{detail.rocket.rocket_name}</td>
             <td>{detail.launch_success ? 'success' : 'failure'}</td>
             <td></td>
           </tr>
         </tbody>
       </table>
       <h2> Video </h2>
-      <YouTube
-        videoId={(detail.links && detail.links.youtube_id) || 'not loaded'}
-      />
+      <YouTube videoId={detail.links && detail.links.youtube_id} />
       <h2>Gallery</h2>
-      {Object.keys(detail).length !== 0 ? (
-        <LaunchGallery images={detail.links.flickr_images} />
-      ) : (
-        'not loaded'
-      )}
+      <LaunchGallery images={detail.links.flickr_images} />
     </div>
   );
 };
