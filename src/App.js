@@ -1,7 +1,7 @@
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import LaunchDetails from './LaunchDetails';
-import LaunchList from './LaunchList';
+import LaunchListPage from './LaunchListPage';
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
         </Link>
         <Routes>
           <Route path='/details/:id' element={<LaunchDetails />} />
-          <Route path='/' element={<LaunchList />} />
+          <Route path='/' element={<LaunchListPage />} />
         </Routes>
       </BrowserRouter>
     </>
