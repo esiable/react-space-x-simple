@@ -17,6 +17,7 @@ const LaunchDetails = () => {
       `https://api.spacexdata.com/v3/launches/${id}`
     );
     const json = await response.json();
+
     setDetail(json);
     setState(true);
   }
