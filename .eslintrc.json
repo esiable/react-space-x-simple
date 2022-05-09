@@ -9,7 +9,10 @@
   ],
   "rules": {
     "react/prop-types": 0,
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    "newline-after-var": ["error", "always"],
+    "newline-before-return": 2,
+    "import/newline-after-import": ["error", { "count": 1 }]
   },
   "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
   "parserOptions": {
