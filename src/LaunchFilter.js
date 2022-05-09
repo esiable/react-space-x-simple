@@ -15,7 +15,6 @@ const LaunchFilter = ({ launches, setLaunches }) => {
   return (
     <form>
       <label htmlFor='search'>
-        {launch}
         <input
           type='text'
           placeholder='Search mission ...'
