@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 
-const LaunchFilter = ({ launches, setLaunches }) => {
+const LaunchFilter = ({ localCache, setLaunches }) => {
   const [launch, setLaunch] = useState('');
-  console.log('launches', launches, setLaunches);
 
   useEffect(() => {
-    const searchResult = launches.filter((item) =>
+    const searchResult = localCache.filter((item) =>
       item.mission_name.toLowerCase().includes(launch.toLowerCase())
     );
 
