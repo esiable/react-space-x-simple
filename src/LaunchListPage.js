@@ -15,6 +15,7 @@ const LaunchListPage = () => {
   async function requestLaunches() {
     const response = await fetch(`https://api.spacexdata.com/v3/launches`);
     const json = await response.json();
+
     setLocalCache(json);
     setLaunches(json);
     setState(true);
@@ -33,4 +34,5 @@ const LaunchListPage = () => {
     </div>
   );
 };
+
 export default LaunchListPage;
